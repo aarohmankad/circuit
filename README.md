@@ -16,3 +16,5 @@ https://dribbble.com/shots/784791-Hardware
 https://d13yacurqjgara.cloudfront.net/users/464647/screenshots/1725022/2_1x.png
 https://d13yacurqjgara.cloudfront.net/users/210956/screenshots/788464/010f.png
 http://upload.wikimedia.org/wikipedia/commons/d/d7/PSX-SCPH-5001-Motherboard.jpg
+https://dribbble.com/shots/1889208-Icons-for-the-Build
+https://dribbble.com/shots/1364831-Main-Board
