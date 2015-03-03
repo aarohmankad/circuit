@@ -11,7 +11,7 @@ Levels
 
 On death of player, 1/0 cut scene (everything get's turned to 1's and 0's).
 
-Inspiration:
+Inspirations:
 https://dribbble.com/shots/784791-Hardware
 https://d13yacurqjgara.cloudfront.net/users/464647/screenshots/1725022/2_1x.png
 https://d13yacurqjgara.cloudfront.net/users/210956/screenshots/788464/010f.png
