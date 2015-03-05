@@ -18,11 +18,3 @@ https://d13yacurqjgara.cloudfront.net/users/210956/screenshots/788464/010f.png
 http://upload.wikimedia.org/wikipedia/commons/d/d7/PSX-SCPH-5001-Motherboard.jpg
 https://dribbble.com/shots/1889208-Icons-for-the-Build
 https://dribbble.com/shots/1364831-Main-Board
-
-Color Schemes from [Google Specs](http://www.google.com/design/spec/style/color.html#color-color-palette)
-* Hero : #2196F3
-* Villain : #512DA8
-* Level 1 : #607D8B
-* Level 2 : #00C853
-* Level 3 : #E64A19
-* Level 4 : Black and White
