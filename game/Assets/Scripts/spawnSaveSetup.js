@@ -27,13 +27,13 @@ function Update () {
 }
 function OnTriggerEnter(other : Collider)
 {
-	if (other.tag == "killbox")
+	if (other.tag == "killBox")
 	{
 		PlaySound(killSound,0);
 		transform.position = curSavePos;
 	}
 	
-	if (saveBox != null && other.tag == "savePoint")
+	if (saveBox != null && other.tag == "ReSpawn")
 	{
 		curSavePos = saveBox.position;		
 	}	
