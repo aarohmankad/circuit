@@ -25,7 +25,7 @@ function Update()
 	if (controller.isGrounded)
 	{
 		
-		velocity = Vector3(Input.GetAxis("Horizontal") * 2,0,0);
+		velocity = Vector3(Input.GetAxis("Horizontal") * 3,0,0);
 		if (velocity.x > 0)
 		{
 			moveRight = true;
