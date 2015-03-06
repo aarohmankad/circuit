@@ -24,9 +24,13 @@ Color Schemes from [Google Specs](http://www.google.com/design/spec/style/color.
 * Level 2 : #00C853
 * Level 3 : #E64A19
 * Level 4 : Black and White
+<<<<<<< Updated upstream
 
 Mechanics
 *Timer Block periodically triggers shock on connected circuits
 *Player can fire electro blasts at the cost of Charge, which is replenished by Batteries
 *You can take 3 hits from enemies, but electric discharges will kill you.
 *Player can change color in menu (extra)
+=======
+test
+>>>>>>> Stashed changes
