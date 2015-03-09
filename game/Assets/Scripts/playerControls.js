@@ -21,11 +21,11 @@ function Update()
 	var aniPlay = GetComponent("aniSprite");
 	var controller : CharacterController = 
 	GetComponent(CharacterController);
-	
+
+	velocity.x = Input.GetAxis("Horizontal") * 3;
+		
 	if (controller.isGrounded)
 	{
-		
-		velocity = Vector3(Input.GetAxis("Horizontal") * 3,0,0);
 		if (velocity.x > 0)
 		{
 			moveRight = true;
@@ -39,30 +39,22 @@ function Update()
 		{
 			PlaySound(jumpSound,0);
 			velocity.y = 12;
-			if (moveRight)
-			{
-				aniPlay.aniSprite(3,9,0,2,3,8,false);   //jump face right
-			}
-			else
-			{
-				aniPlay.aniSprite(3,9,0,2,3,8,true);   //jump face left
-			}
 		}		
 		else
 		{
 			if (Input.GetKey("right"))
 			{
-				aniPlay.aniSprite(3,9,0,1,3,8,false);   //walk face right
+				aniPlay.aniSprite(8,8,0,1,8,10,false);   //walk face right
 			}
 			else if (Input.GetKey("left"))
 			{
-				aniPlay.aniSprite(3,9,0,1,3,8,true);   //walk face left
+				aniPlay.aniSprite(8,8,0,1,8,10,true);   //walk face left
 			}
 			else if (Input.GetKey("down"))
 			{
 				if (moveRight)
 				{
-					aniPlay.aniSprite(3,9,0,6,3,24,false);   //crouch face right		
+					aniPlay.aniSprite(8,8,0,1,8,10,false);    //crouch face right		
 				}	
 				else
 				{
@@ -73,14 +65,39 @@ function Update()
 			{
 				if (moveRight)
 				{
-					aniPlay.aniSprite(3,9,0,0,3,8,false);   //neutral face right		
+					aniPlay.aniSprite(8,8,0,0,8,10,false);   //neutral face right		
 				}
 				else
 				{
-					aniPlay.aniSprite(3,9,0,0,3,8,true);   //neutral face left	
+					aniPlay.aniSprite(8,8,0,0,8,10,true);  //neutral face left	
 				}	
 			}
 		 }
+	}
+	else
+	{
+		if (velocity.y >0)
+		{
+			if (moveRight)
+			{
+				aniPlay.aniSprite(8,8,0,2,1,10,false);   //jump face right
+			}
+			else
+			{
+				aniPlay.aniSprite(8,8,7,2,1,10,true);   //jump face left
+			}
+		}
+		else
+		{
+			if (moveRight)
+			{
+				aniPlay.aniSprite(8,8,1,2,1,10,false);   //fall face right
+			}
+			else
+			{
+				aniPlay.aniSprite(8,8,6,2,1,10,true);   //fall face left
+			}
+		}
 	}
 
 	velocity.y -= gravity * Time.deltaTime;

@@ -11,12 +11,14 @@
 // totalFrames     - number of frames in the animation (count regular)
 // framesPerSecond - how fast do you want it to play through (Standard: 12 - 30 fps)
 
+var currentFrame = 0;
+
 function aniSprite (columnSize, rowSize, colFrameStart, rowFrameStart, totalFrames, 
 framesPerSecond,flip)// function for animating sprites
 {
 	var index : int = Time.time * framesPerSecond;													// time control fps
 	index = index % totalFrames;																	// modulate to total number of frames
-	
+	currentFrame = index;
 	var size : Vector2;											// scale for column and row size
 	if (flip)
 		size = Vector2 ( -1.0 / columnSize, 1.0 / rowSize);											// scale for column and row size
@@ -34,4 +36,9 @@ framesPerSecond,flip)// function for animating sprites
 
 //	renderer.material.SetTextureOffset ("_BumpMap", offset);										// texture offset for bump (normal map)
 //	renderer.material.SetTextureScale  ("_BumpMap", size);											// texture scale  for bump (normal map) 
+}
+
+function getFrame()
+{
+	return currentFrame;
 }
