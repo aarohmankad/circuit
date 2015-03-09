@@ -26,6 +26,7 @@ function Update()
 		
 	if (controller.isGrounded)
 	{
+		velocity.y = 0;
 		if (velocity.x > 0)
 		{
 			moveRight = true;
