@@ -23,18 +23,18 @@ function Update()
 	GetComponent(CharacterController);
 
 	velocity.x = Input.GetAxis("Horizontal") * 3;
+	if (velocity.x > 0)
+	{
+		moveRight = true;
+	}
+	else if (velocity.x < 0)
+	{
+		moveRight = false;
+	}
 		
 	if (controller.isGrounded)
 	{
-		if (velocity.x > 0)
-		{
-			moveRight = true;
-		}
-		else if (velocity.x < 0)
-		{
-			moveRight = false;
-		}
-		
+		velocity.y = 0;
 		if (Input.GetKey("space"))
 		{
 			PlaySound(jumpSound,0);
@@ -42,15 +42,15 @@ function Update()
 		}		
 		else
 		{
-			if (Input.GetKey("right"))
+			if (Input.GetKey("right") || Input.GetKey(KeyCode.D))
 			{
 				aniPlay.aniSprite(8,8,0,1,8,10,false);   //walk face right
 			}
-			else if (Input.GetKey("left"))
+			else if (Input.GetKey("left") || Input.GetKey(KeyCode.A))
 			{
 				aniPlay.aniSprite(8,8,0,1,8,10,true);   //walk face left
 			}
-			else if (Input.GetKey("down"))
+			else if (Input.GetKey("down") || Input.GetKey(KeyCode.S))
 			{
 				if (moveRight)
 				{
