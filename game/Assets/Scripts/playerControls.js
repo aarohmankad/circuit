@@ -112,9 +112,22 @@ function Update()
 	controller.Move(velocity * Time.deltaTime);
 }
 
-function resetGame()
+function OnTriggerEnter(other : Collider)
 {
-	PlaySound(dieSound,0);
-	yield WaitForSeconds (audio.clip.length);
-	Application.LoadLevel('splash');
+	if(other.GetComponent(chipScript))
+		if(other.GetComponent(chipScript).charged)
+		{
+			Destroy(gameObject); 
+		}
 }
+
+
+
+
+
+
+
+
+
+
+
