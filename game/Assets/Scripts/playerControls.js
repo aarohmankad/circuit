@@ -35,8 +35,6 @@ function Update()
 	if (controller.isGrounded)
 	{
 		velocity.y = 0;
-<<<<<<< HEAD
-=======
 		if (velocity.x > 0)
 		{
 			moveRight = true;
@@ -45,8 +43,6 @@ function Update()
 		{
 			moveRight = false;
 		}
-		
->>>>>>> origin/master
 		if (Input.GetKey("space"))
 		{
 			PlaySound(jumpSound,0);
