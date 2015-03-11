@@ -35,8 +35,6 @@ function Update()
 	if (controller.isGrounded)
 	{
 		velocity.y = 0;
-<<<<<<< HEAD
-=======
 		if (velocity.x > 0)
 		{
 			moveRight = true;
@@ -45,8 +43,6 @@ function Update()
 		{
 			moveRight = false;
 		}
-		
->>>>>>> origin/master
 		if (Input.GetKey("space"))
 		{
 			PlaySound(jumpSound,0);
@@ -116,9 +112,22 @@ function Update()
 	controller.Move(velocity * Time.deltaTime);
 }
 
-function resetGame()
+function OnTriggerEnter(other : Collider)
 {
-	PlaySound(dieSound,0);
-	yield WaitForSeconds (audio.clip.length);
-	Application.LoadLevel('splash');
+	if(other.GetComponent(chipScript))
+		if(other.GetComponent(chipScript).charged)
+		{
+			Destroy(gameObject); 
+		}
 }
+
+
+
+
+
+
+
+
+
+
+
