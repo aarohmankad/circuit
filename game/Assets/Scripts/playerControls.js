@@ -114,14 +114,20 @@ function Update()
 
 function OnTriggerEnter(other : Collider)
 {
-	if(other.GetComponent(chipScript))
-		if(other.GetComponent(chipScript).charged)
-		{
-			Destroy(gameObject); 
-		}
+	if(other.tag == 'wire' && other.GetComponent(wireScript).charged)
+		Destroy(gameObject);
+	if(other.tag == 'chip' && other.GetComponent(chipScript).charged)
+		Destroy(gameObject);
+	if(other.tag == 'bolt' && other.GetComponent(boltScript).charged)
+		Destroy(gameObject);
+	if(other.tag == 'Finish')
+		reset();
 }
 
-
+function reset()
+{
+	Application.LoadLevel(Application.loadedLevel+1);
+}
 
 
 
