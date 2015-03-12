@@ -8,6 +8,7 @@ var soundRate : float = 0.0;
 var soundDelay : float = 0.0;
 
 private var prevYPos;
+private var move = .001;
 function PlaySound(soundName,soundDelay : float)
 {
 	if (!audio.isPlaying && Time.time > soundRate)
@@ -127,8 +128,11 @@ function Update()
 			}
 		}
 	}
-		
+	
 	velocity.y -= gravity * Time.deltaTime;
+	
+	velocity.x += move;
+	move = -move;
 	controller.Move(velocity * Time.deltaTime);
 	
 	if(prevYPos != transform.position.y)
@@ -144,9 +148,21 @@ function OnTriggerEnter(other : Collider)
 	if(other.tag == 'chip' && other.GetComponent(chipScript).charged)
 		Application.LoadLevel(Application.loadedLevel);
 	if(other.tag == 'bolt' && other.GetComponent(boltScript).charged)
+	{
 		Application.LoadLevel(Application.loadedLevel);
+	}
 	if(other.tag == 'Finish')
 		loadNext();
+}
+
+function OnCollisionStay(other : Collision)
+{
+	if(other.tag == 'bolt' && other.GetComponent(boltScript).charged)
+	{
+		Application.LoadLevel(Application.loadedLevel);
+	}
+	if(other.tag == 'bolt')
+		print('hit a bolt');
 }
 
 function loadNext()
