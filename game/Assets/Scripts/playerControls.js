@@ -6,6 +6,8 @@ var jumpSound : AudioClip;
 var dieSound : AudioClip;
 var soundRate : float = 0.0;
 var soundDelay : float = 0.0;
+
+private var prevYPos;
 function PlaySound(soundName,soundDelay : float)
 {
 	if (!audio.isPlaying && Time.time > soundRate)
@@ -21,8 +23,20 @@ function Update()
 	var aniPlay = GetComponent("aniSprite");
 	var controller : CharacterController = 
 	GetComponent(CharacterController);
-
-	velocity.x = Input.GetAxis("Horizontal") * 3;
+	
+	if((Input.GetKey(KeyCode.S) || Input.GetKey('down')) && controller.isGrounded)
+	{
+		velocity.x = Input.GetAxis("Horizontal") * 2;
+		controller.height = 0.35;
+		controller.center.y = -0.35;
+	}
+	else
+	{
+		velocity.x = Input.GetAxis("Horizontal") * 3;
+		controller.height = 0.8;
+		controller.center.y = -0.15;
+	}
+	
 	if (velocity.x > 0)
 	{
 		moveRight = true;
@@ -58,17 +72,6 @@ function Update()
 			{
 				aniPlay.aniSprite(8,8,0,1,8,10,true);   //walk face left
 			}
-			else if (Input.GetKey("down") || Input.GetKey(KeyCode.S))
-			{
-				if (moveRight)
-				{
-					aniPlay.aniSprite(8,8,0,1,8,10,false);    //crouch face right		
-				}	
-				else
-				{
-					aniPlay.aniSprite(3,9,0,6,3,24,false);   //crouch face left	
-				}
-			}		
 			else
 			{
 				if (moveRight)
@@ -80,6 +83,23 @@ function Update()
 					aniPlay.aniSprite(8,8,0,0,8,10,true);  //neutral face left	
 				}	
 			}
+			
+			if (Input.GetKey("down") || Input.GetKey(KeyCode.S))
+			{
+				if (moveRight)
+				{
+					aniPlay.aniSprite(8,8,0,3,4,5,false);    //crouch face right		
+				}	
+				else
+				{
+					aniPlay.aniSprite(8,8,4,3,4,5,true);   //crouch face left	
+				}
+				
+				if(Input.GetKey('right') || Input.GetKey(KeyCode.D))
+					aniPlay.aniSprite(8,8,0,4,8,10,false);
+				else if(Input.GetKey('left') || Input.GetKey(KeyCode.A))
+					aniPlay.aniSprite(8,8,0,4,8,10,true);
+			}	
 		 }
 	}
 	else
@@ -107,9 +127,14 @@ function Update()
 			}
 		}
 	}
-
+		
 	velocity.y -= gravity * Time.deltaTime;
 	controller.Move(velocity * Time.deltaTime);
+	
+	if(prevYPos != transform.position.y)
+		prevYPos = transform.position.y;
+	else
+		velocity.y = 0;
 }
 
 function OnTriggerEnter(other : Collider)
