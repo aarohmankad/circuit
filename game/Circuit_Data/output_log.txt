@@ -12,7 +12,22 @@ Platform assembly: C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\M
 Loading C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.039 seconds
+- Completed reload, in  0.038 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+Platform assembly: C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\Boo.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\UnityScript.Lang.dll (this message is harmless)
+UnloadTime: 0.956362 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 41 unused Assets to reduce memory usage. Loaded Objects now: 1157.
+Total: 0.729939 ms (FindLiveObjects: 0.036240 ms CreateObjectMapping: 0.012828 ms MarkObjects: 0.118342 ms  DeleteObjects: 0.151375 ms)
+
+UnloadTime: 2.748819 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 134 unused Assets to reduce memory usage. Loaded Objects now: 1157.
+Total: 1.613179 ms (FindLiveObjects: 0.077932 ms CreateObjectMapping: 0.056124 ms MarkObjects: 0.210066 ms  DeleteObjects: 0.647516 ms)
+
