@@ -6,28 +6,13 @@ Direct3D:
     Vendor:   ATI
     VRAM:     1010 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.040 seconds
+Platform assembly: C:\Users\157002086\Desktop\Circuit\circuit\game\Circuit_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\157002086\Desktop\Circuit\circuit\game\Circuit_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\157002086\Desktop\Circuit\circuit\game\Circuit_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\157002086\Desktop\Circuit\circuit\game\Circuit_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\157002086\Desktop\Circuit\circuit\game\Circuit_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\157002086\Desktop\Circuit\circuit\game\Circuit_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.201 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-Platform assembly: C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\Boo.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\150002542\Desktop\GitHub\circuit\game\Circuit_Data\Managed\UnityScript.Lang.dll (this message is harmless)
-UnloadTime: 2.485835 ms
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 30 unused Assets to reduce memory usage. Loaded Objects now: 746.
-Total: 1.134998 ms (FindLiveObjects: 0.053879 ms CreateObjectMapping: 0.024694 ms MarkObjects: 0.186333 ms  DeleteObjects: 0.145282 ms)
-
-UnloadTime: 1.865579 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 30 unused Assets to reduce memory usage. Loaded Objects now: 746.
-Total: 1.000299 ms (FindLiveObjects: 0.046182 ms CreateObjectMapping: 0.025015 ms MarkObjects: 0.155224 ms  DeleteObjects: 0.151696 ms)
-
