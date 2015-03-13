@@ -6,6 +6,7 @@ var jumpSound : AudioClip;
 var dieSound : AudioClip;
 var soundRate : float = 0.0;
 var soundDelay : float = 0.0;
+var forceCrawl : boolean = false;
 
 private var prevYPos;
 private var move = .001;
@@ -25,7 +26,7 @@ function Update()
 	var controller : CharacterController = 
 	GetComponent(CharacterController);
 	
-	if((Input.GetKey(KeyCode.S) || Input.GetKey('down')) && controller.isGrounded)
+	if((Input.GetKey(KeyCode.S) || Input.GetKey('down') || forceCrawl) && controller.isGrounded)
 	{
 		velocity.x = Input.GetAxis("Horizontal") * 2;
 		controller.height = 0.35;
@@ -85,7 +86,7 @@ function Update()
 				}	
 			}
 			
-			if (Input.GetKey("down") || Input.GetKey(KeyCode.S))
+			if (Input.GetKey("down") || Input.GetKey(KeyCode.S) || forceCrawl)
 			{
 				if (moveRight)
 				{
@@ -97,9 +98,9 @@ function Update()
 				}
 				
 				if(Input.GetKey('right') || Input.GetKey(KeyCode.D))
-					aniPlay.aniSprite(8,8,0,4,8,10,false);
+					aniPlay.aniSprite(8,8,0,4,8,10,false);  //crawl face right
 				else if(Input.GetKey('left') || Input.GetKey(KeyCode.A))
-					aniPlay.aniSprite(8,8,0,4,8,10,true);
+					aniPlay.aniSprite(8,8,0,4,8,10,true);  //crawl face left
 			}	
 		 }
 	}
@@ -151,18 +152,17 @@ function OnTriggerEnter(other : Collider)
 	{
 		Application.LoadLevel(Application.loadedLevel);
 	}
+	if(other.tag == 'crawlZoneStart')
+	{
+		forceCrawl = true;
+	}
+	else if(other.tag == 'crawlZoneEnd')
+	{
+		forceCrawl = false;
+	}
 	if(other.tag == 'Finish')
 		loadNext();
-}
-
-function OnCollisionStay(other : Collision)
-{
-	if(other.tag == 'bolt' && other.GetComponent(boltScript).charged)
-	{
-		Application.LoadLevel(Application.loadedLevel);
-	}
-	if(other.tag == 'bolt')
-		print('hit a bolt');
+		
 }
 
 function loadNext()
