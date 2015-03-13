@@ -59,7 +59,7 @@ function Update()
 		{
 			moveRight = false;
 		}
-		if (Input.GetKey("space"))
+		if (Input.GetKey("space") && !(Input.GetKey(KeyCode.S) || Input.GetKey('down') || forceCrawl))
 		{
 			PlaySound(jumpSound,0);
 			velocity.y = 12;

@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\playerControls.js">
     <Files>
-      <File FileName="Assets\Scripts\playerControls.js" Line="103" Column="62" />
+      <File FileName="Assets\Scripts\playerControls.js" Line="62" Column="33" />
       <File FileName="Assets\Scripts\boltScript.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\chipScript.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\wireScript.js" Line="1" Column="1" />
