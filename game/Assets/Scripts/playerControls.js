@@ -7,6 +7,7 @@ var dieSound : AudioClip;
 var soundRate : float = 0.0;
 var soundDelay : float = 0.0;
 var forceCrawl : boolean = false;
+var gameOver : boolean = false;
 
 private var prevYPos;
 private var move = .001;
@@ -26,31 +27,21 @@ function Update()
 	var controller : CharacterController = 
 	GetComponent(CharacterController);
 	
-	if((Input.GetKey(KeyCode.S) || Input.GetKey('down') || forceCrawl) && controller.isGrounded)
+	if (!gameOver)
 	{
-		velocity.x = Input.GetAxis("Horizontal") * 2;
-		controller.height = 0.35;
-		controller.center.y = -0.35;
-	}
-	else
-	{
-		velocity.x = Input.GetAxis("Horizontal") * 3;
-		controller.height = 0.8;
-		controller.center.y = -0.15;
-	}
-	
-	if (velocity.x > 0)
-	{
-		moveRight = true;
-	}
-	else if (velocity.x < 0)
-	{
-		moveRight = false;
-	}
+		if((Input.GetKey(KeyCode.S) || Input.GetKey('down') || forceCrawl) && controller.isGrounded)
+		{
+			velocity.x = Input.GetAxis("Horizontal") * 2;
+			controller.height = 0.35;
+			controller.center.y = -0.35;
+		}
+		else
+		{
+			velocity.x = Input.GetAxis("Horizontal") * 3;
+			controller.height = 0.8;
+			controller.center.y = -0.15;
+		}
 		
-	if (controller.isGrounded)
-	{
-		velocity.y = 0;
 		if (velocity.x > 0)
 		{
 			moveRight = true;
@@ -59,99 +50,121 @@ function Update()
 		{
 			moveRight = false;
 		}
-		if (Input.GetKey("space") && !(Input.GetKey(KeyCode.S) || Input.GetKey('down') || forceCrawl))
+			
+		if (controller.isGrounded)
 		{
-			PlaySound(jumpSound,0);
-			velocity.y = 12;
-		}		
-		else
-		{
-			if (Input.GetKey("right") || Input.GetKey(KeyCode.D))
+			velocity.y = 0;
+			if (velocity.x > 0)
 			{
-				aniPlay.aniSprite(8,8,0,1,8,10,false);   //walk face right
+				moveRight = true;
 			}
-			else if (Input.GetKey("left") || Input.GetKey(KeyCode.A))
+			else if (velocity.x < 0)
 			{
-				aniPlay.aniSprite(8,8,0,1,8,10,true);   //walk face left
+				moveRight = false;
 			}
+			if (Input.GetKey("space") && !(Input.GetKey(KeyCode.S) || Input.GetKey('down') || forceCrawl))
+			{
+				PlaySound(jumpSound,0);
+				velocity.y = 12;
+			}		
 			else
 			{
-				if (moveRight)
+				if (Input.GetKey("right") || Input.GetKey(KeyCode.D))
 				{
-					aniPlay.aniSprite(8,8,0,0,8,10,false);   //neutral face right		
+					aniPlay.aniSprite(8,8,0,1,8,10,false);   //walk face right
+				}
+				else if (Input.GetKey("left") || Input.GetKey(KeyCode.A))
+				{
+					aniPlay.aniSprite(8,8,0,1,8,10,true);   //walk face left
 				}
 				else
 				{
-					aniPlay.aniSprite(8,8,0,0,8,10,true);  //neutral face left	
-				}	
-			}
-			
-			if (Input.GetKey("down") || Input.GetKey(KeyCode.S) || forceCrawl)
-			{
-				if (moveRight)
-				{
-					aniPlay.aniSprite(8,8,0,3,4,5,false);    //crouch face right		
-				}	
-				else
-				{
-					aniPlay.aniSprite(8,8,4,3,4,5,true);   //crouch face left	
+					if (moveRight)
+					{
+						aniPlay.aniSprite(8,8,0,0,8,10,false);   //neutral face right		
+					}
+					else
+					{
+						aniPlay.aniSprite(8,8,0,0,8,10,true);  //neutral face left	
+					}	
 				}
 				
-				if(Input.GetKey('right') || Input.GetKey(KeyCode.D))
-					aniPlay.aniSprite(8,8,0,4,8,10,false);  //crawl face right
-				else if(Input.GetKey('left') || Input.GetKey(KeyCode.A))
-					aniPlay.aniSprite(8,8,0,4,8,10,true);  //crawl face left
-			}	
-		 }
-	}
-	else
-	{
-		if (velocity.y >0)
-		{
-			if (moveRight)
-			{
-				aniPlay.aniSprite(8,8,0,2,1,10,false);   //jump face right
-			}
-			else
-			{
-				aniPlay.aniSprite(8,8,7,2,1,10,true);   //jump face left
-			}
+				if (Input.GetKey("down") || Input.GetKey(KeyCode.S) || forceCrawl)
+				{
+					if (moveRight)
+					{
+						aniPlay.aniSprite(8,8,0,3,4,5,false);    //crouch face right		
+					}	
+					else
+					{
+						aniPlay.aniSprite(8,8,4,3,4,5,true);   //crouch face left	
+					}
+					
+					if(Input.GetKey('right') || Input.GetKey(KeyCode.D))
+						aniPlay.aniSprite(8,8,0,4,8,10,false);  //crawl face right
+					else if(Input.GetKey('left') || Input.GetKey(KeyCode.A))
+						aniPlay.aniSprite(8,8,0,4,8,10,true);  //crawl face left
+				}	
+			 }
 		}
 		else
 		{
-			if (moveRight)
+			if (velocity.y >0)
 			{
-				aniPlay.aniSprite(8,8,1,2,1,10,false);   //fall face right
+				if (moveRight)
+				{
+					aniPlay.aniSprite(8,8,0,2,1,10,false);   //jump face right
+				}
+				else
+				{
+					aniPlay.aniSprite(8,8,7,2,1,10,true);   //jump face left
+				}
 			}
 			else
 			{
-				aniPlay.aniSprite(8,8,6,2,1,10,true);   //fall face left
+				if (moveRight)
+				{
+					aniPlay.aniSprite(8,8,1,2,1,10,false);   //fall face right
+				}
+				else
+				{
+					aniPlay.aniSprite(8,8,6,2,1,10,true);   //fall face left
+				}
 			}
 		}
-	}
-	
-	velocity.y -= gravity * Time.deltaTime;
-	
-	velocity.x += move;
-	move = -move;
-	controller.Move(velocity * Time.deltaTime);
+		
+		velocity.y -= gravity * Time.deltaTime;
+		
+		velocity.x += move;
+		move = -move;
+		controller.Move(velocity * Time.deltaTime);
 	
 	if(prevYPos != transform.position.y)
 		prevYPos = transform.position.y;
 	else
 		velocity.y = 0;
+	}
+	else
+	{
+		aniPlay.aniSprite(8,8,0,7,8,8,false);   //die face right
+
+	}
 }
 
 function OnTriggerEnter(other : Collider)
 {
 	if(other.tag == 'wire' && other.GetComponent(wireScript).charged)
-		Application.LoadLevel(Application.loadedLevel);
-	if(other.tag == 'chip' && other.GetComponent(chipScript).charged)
-		Application.LoadLevel(Application.loadedLevel);
-	if(other.tag == 'bolt' && other.GetComponent(boltScript).charged)
-		Application.LoadLevel(Application.loadedLevel);
-	if(other.tag == 'saw')
-		Application.LoadLevel(Application.loadedLevel);	
+	{
+		gameOver = true;
+		die();
+	}
+		
+//	if(other.tag == 'chip' && other.GetComponent(chipScript).charged)
+//		Application.LoadLevel(Application.loadedLevel);
+//	if(other.tag == 'bolt' && other.GetComponent(boltScript).charged)
+//		Application.LoadLevel(Application.loadedLevel);
+//	if(other.tag == 'saw')
+//		Application.LoadLevel(Application.loadedLevel);	
 	if(other.tag == 'crawlZoneStart')
 	{
 		forceCrawl = true;
@@ -170,8 +183,11 @@ function loadNext()
 	Application.LoadLevel(Application.loadedLevel+1);
 }
 
-
-
+function die()
+{
+	yield WaitForSeconds(1);
+	Application.LoadLevel(Application.loadedLevel);
+}
 
 
 
