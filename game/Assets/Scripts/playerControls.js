@@ -149,9 +149,9 @@ function OnTriggerEnter(other : Collider)
 	if(other.tag == 'chip' && other.GetComponent(chipScript).charged)
 		Application.LoadLevel(Application.loadedLevel);
 	if(other.tag == 'bolt' && other.GetComponent(boltScript).charged)
-	{
 		Application.LoadLevel(Application.loadedLevel);
-	}
+	if(other.tag == 'saw')
+		Application.LoadLevel(Application.loadedLevel);	
 	if(other.tag == 'crawlZoneStart')
 	{
 		forceCrawl = true;
