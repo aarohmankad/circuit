@@ -157,14 +157,22 @@ function OnTriggerEnter(other : Collider)
 	{
 		gameOver = true;
 		die();
+	}	
+	if(other.tag == 'chip' && other.GetComponent(chipScript).charged)
+	{
+		gameOver = true;
+		die();
 	}
-		
-//	if(other.tag == 'chip' && other.GetComponent(chipScript).charged)
-//		Application.LoadLevel(Application.loadedLevel);
-//	if(other.tag == 'bolt' && other.GetComponent(boltScript).charged)
-//		Application.LoadLevel(Application.loadedLevel);
-//	if(other.tag == 'saw')
-//		Application.LoadLevel(Application.loadedLevel);	
+	if(other.tag == 'bolt' && other.GetComponent(boltScript).charged)
+	{
+		gameOver = true;
+		die();
+	}
+	if(other.tag == 'saw')
+	{
+		gameOver = true;
+		die();
+	}
 	if(other.tag == 'crawlZoneStart')
 	{
 		forceCrawl = true;
