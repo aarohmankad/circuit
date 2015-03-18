@@ -50,8 +50,10 @@
      <Compile Include="Assets\Scripts\boltScript.js" />
      <Compile Include="Assets\Scripts\chipScript.js" />
      <Compile Include="Assets\Scripts\finishScript.js" />
+     <Compile Include="Assets\Scripts\mainmenu.js" />
      <Compile Include="Assets\Scripts\playerControls.js" />
      <Compile Include="Assets\Scripts\sawScript.js" />
+     <Compile Include="Assets\Scripts\soundScript.js" />
      <Compile Include="Assets\Scripts\spawnSaveSetup.js" />
      <Compile Include="Assets\Scripts\timer.js" />
      <Compile Include="Assets\Scripts\wireScript.js" />

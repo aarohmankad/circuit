@@ -188,7 +188,10 @@ function OnTriggerEnter(other : Collider)
 
 function loadNext()
 {
-	Application.LoadLevel(Application.loadedLevel+1);
+	if(Application.loadedLevel == 4)
+		Application.LoadLevel(0);
+	else
+		Application.LoadLevel(Application.loadedLevel+1);
 }
 
 function die()
